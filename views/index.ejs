@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Douglas Alvarino</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+<section id="landing" class="landing">
+  <div class="container">
+    <div class="intro">
+      <h1>Douglas<br>Alvarino</h1>
+      <p>Engineer, Developer, Explorer</p>
+    </div>
+    <div class="scroll-cue" id="scroll-cue">↓</div>
+  </div>
+</section>
+  <%- include('partials/header') %>
+
+  <!-- About -->
+<section id="about" data-aos="fade-up">
+  <div class="about-card">
+    <h2>About Me</h2>
+    <p>
+     I’m Douglas Alvarino — a product developer and cybersecurity student with over three years of hands-on 
+     experience in software engineering, specializing in Python, JavaScript, and AI training systems. My background 
+     combines technical support, agile development,and real-world application of data analysis to 
+     drive both product quality and user engagement. From building Elo-based sports analytics tools to contributing
+     to open-source machine learning projects, I’m passionate about delivering innovative solutions that bridge data
+     and usability. With a strong foundation in troubleshooting, project management, and secure
+     systems, I’m committed to evolving as a developer who builds resilient, intelligent, and user-focused technology.
+    </p>
+  </div>
+</section>
+<!--Resume-->
+
+<section id="resume" data-aos="fade-up">
+  <div class="resume-grid">
+    
+    <!-- Experience -->
+    <div class="resume-left">
+      <h2>Experience</h2>
+      <ul class="resume-list">
+        <li><strong>Assistant Fitness Manager</strong>, EOS Fitness — Sep 2024–Present<br><em>Tampa, FL</em></li>
+        <li><strong>Inside Sales & Technical Support</strong>, Bass Pro Shops — Dec 2023–Feb 2025<br><em>Tampa, FL</em></li>
+        <li><strong>Volunteer</strong>, Luv Michael — Feb 2022–Aug 2022<br><em>Remote</em></li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div class="resume-right">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>C</li>
+        <li>Agile Methodologies</li>
+        <li>Project Management</li>
+        <li>AI Training</li>
+        <li>Problem Solving</li>
+      </ul>
+    </div>
+    <h2>Education</h2>
+    <p><strong>University of South Florida</strong><br>B.S. in Cybersecurity — Aug 2023–Present</p>
+  </div>
+</section>
+
+  <!-- Projects -->
+<section id="projects">
+  <h2 data-aos="fade-up">Projects</h2>
+  <div class="project-scroll-wrapper">
+    <div class="project-grid">
+      <% projects.forEach(project => { %>
+        <div class="project-card" data-aos="fade-up">
+          <h3><a href="<%= project.url %>" target="_blank"><%= project.name %></a></h3>
+          <p><%= project.description %></p>
+          <div class="project-meta">
+            <% if (project.language) { %>
+              <span><i class="fas fa-code"></i> <%= project.language %></span>
+            <% } %>
+            <span><i class="fas fa-star"></i> <%= project.stars %></span>
+            <span><i class="fas fa-code-branch"></i> <%= project.forks %></span>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+  <%- include('partials/footer') %>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
+
+  // Auto-hide menu on nav link click (mobile only)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        navLinks.classList.remove('show');
+        hamburger.classList.remove('active');
+      }
+    });
+  });
+</script>
+
+  <script>
+    // Scroll to About section on cue click or wheel
+    // Scroll to About section on cue click or wheel
+    const cue = document.getElementById("scroll-cue");
+    const aboutSection = document.getElementById("about");
+    let scrolled = false;
+
+    function scrollToAbout() {
+      if (!scrolled) {
+        scrolled = true;
+        aboutSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    cue.addEventListener("click", scrollToAbout);
+    window.addEventListener("wheel", (e) => {
+      if (e.deltaY > 0) scrollToAbout();
+    });
+ </script>
+
+</body>
+</html>
+
