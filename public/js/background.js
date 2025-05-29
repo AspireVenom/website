@@ -1,4 +1,3 @@
-// 🌈 Global Gradient Canvas
 const gradientCanvas = document.createElement("canvas");
 document.body.appendChild(gradientCanvas);
 const ctx = gradientCanvas.getContext("2d");
