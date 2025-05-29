@@ -12,12 +12,17 @@
 </head>
 <body>
 <section id="landing" class="landing">
-  <div class="container">
-    <div class="intro">
-      <h1>Douglas<br>Alvarino</h1>
-      <p>Engineer, Developer, Explorer</p>
+  <div class="intro">
+    <!-- This is only used on desktop -->
+    <div class="terminal-line" id="line1-container">
+      <span class="prompt">&gt; </span><span id="line1"></span>
     </div>
-    <div class="scroll-cue" id="scroll-cue">↓</div>
+    <div class="terminal-line" id="line2-container" style="opacity: 0;">
+      <span class="prompt">&gt; </span><span id="line2"></span>
+    </div>
+    <span class="cursor" id="cursor">_</span>
+  </div>
+   <div class="scroll-cue" id="scroll-cue">↓</div>
   </div>
 </section>
   <%- include('partials/header') %>
@@ -95,6 +100,99 @@
   <%- include('partials/footer') %>
 
   <!-- Scripts -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = window.innerWidth <= 768;
+  const intro = document.querySelector(".intro");
+  const cursor = document.getElementById("cursor");
+
+  function moveCursorTo(el) {
+    const rect = el.getBoundingClientRect();
+    const introRect = intro.getBoundingClientRect();
+    cursor.style.top = `${rect.top - introRect.top}px`;
+    cursor.style.left = `${rect.left - introRect.left + rect.width + 2}px`;
+  }
+
+  if (!isMobile) {
+    // 💻 Desktop mode
+    const line1Container = document.getElementById("line1-container");
+    const line2Container = document.getElementById("line2-container");
+    const line1 = document.getElementById("line1");
+    const line2 = document.getElementById("line2");
+
+    // Make sure both lines are visible
+    line1Container.style.display = "block";
+    line2Container.style.display = "block";
+    line2Container.style.opacity = "0";
+
+    const line1Text = "Douglas Alvarino";
+    const line2Text = "Engineer | Developer | Explorer";
+    let i = 0, j = 0;
+
+    function typeLine1() {
+      if (i < line1Text.length) {
+        line1.textContent += line1Text.charAt(i);
+        moveCursorTo(line1);
+        i++;
+        setTimeout(typeLine1, 80);
+      } else {
+        line2Container.style.opacity = "1";
+        setTimeout(typeLine2, 300);
+      }
+    }
+
+    function typeLine2() {
+      if (j < line2Text.length) {
+        line2.textContent += line2Text.charAt(j);
+        moveCursorTo(line2);
+        j++;
+        setTimeout(typeLine2, 80);
+      }
+    }
+
+    typeLine1();
+  } else {
+    // 📱 Mobile mode
+    // Hide desktop lines so they don’t show up with lone prompts
+    document.getElementById("line1-container").style.display = "none";
+    document.getElementById("line2-container").style.display = "none";
+
+    const lines = ["Douglas Alvarino", "Engineer", "Developer", "Explorer"];
+    let currentLine = 0;
+    let charIndex = 0;
+
+    function typeMobileLine() {
+      if (currentLine >= lines.length) return;
+
+      const newLine = document.createElement("div");
+      newLine.className = "terminal-line";
+      const lineId = `mobile-line-${currentLine}`;
+      newLine.innerHTML = `<span class="prompt">&gt; </span><span id="${lineId}"></span>`;
+      intro.insertBefore(newLine, cursor);
+
+      const span = document.getElementById(lineId);
+      const text = lines[currentLine];
+
+      function typeChar() {
+        if (charIndex < text.length) {
+          span.textContent += text.charAt(charIndex);
+          moveCursorTo(span);
+          charIndex++;
+          setTimeout(typeChar, 80);
+        } else {
+          currentLine++;
+          charIndex = 0;
+          setTimeout(typeMobileLine, 300);
+        }
+      }
+
+      typeChar();
+    }
+
+    typeMobileLine();
+  }
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>AOS.init();</script>
   <script>

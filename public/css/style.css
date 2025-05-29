@@ -13,6 +13,56 @@ html {
   padding: 2rem;
 }
 
+.intro {
+  position: relative;
+  padding: 6rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.terminal-line {
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+  font-size: 2rem;
+  white-space: nowrap;
+  overflow: visible;
+  position: relative;
+  margin-bottom: 0.5rem;
+  min-height: 2.2rem; /* ensures enough space for text+cursor */
+}
+
+.cursor {
+  position: absolute;
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 2rem;
+  color: #00ff00;
+  animation: blink 1s step-end infinite;
+  pointer-events: none;
+  height: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .terminal-line {
+    font-size: 1.3rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  .cursor {
+      font-size: 1.3rem;
+    }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
 #landing .intro h1 {
   font-size: 4rem;
   font-weight: 600;
@@ -109,7 +159,6 @@ body.modern-gradient {
   align-items: center;
   padding: 1rem 2rem;
   background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
   color: red;
   position: sticky;
   top: 1rem;
