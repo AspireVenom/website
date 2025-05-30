@@ -78,9 +78,10 @@ html {
 
 .scroll-cue {
   position: absolute;
-  bottom: 2rem;
+  bottom: 4rem;
   left: 50%;
   transform: translateX(-50%);
+  transform: transalteY(+50%);
   font-size: 2rem;
   animation: bounce 2s infinite;
   color: #94a3b8;

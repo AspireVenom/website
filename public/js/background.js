@@ -10,7 +10,7 @@ gradientCanvas.style.height = "100%";
 gradientCanvas.style.zIndex = "-1";
 gradientCanvas.style.pointerEvents = "none";
 
-// 🖱️ Mouse tracking (global)
+// Mouse tracking (global)
 let mouse = {
   x: window.innerWidth / 2,
   y: window.innerHeight / 2,
@@ -56,12 +56,11 @@ function animateGradient() {
 }
 animateGradient();
 
-// 🟢 Scoped Matrix Rain in #landing
+// Scoped Matrix Rain in #landing
 const matrixCanvas = document.createElement("canvas");
 const landing = document.getElementById("landing");
 landing.style.position = "relative";
 landing.appendChild(matrixCanvas);
-
 const mtx = matrixCanvas.getContext("2d");
 
 matrixCanvas.style.position = "absolute";
@@ -81,7 +80,7 @@ function resizeMatrixCanvas() {
 resizeMatrixCanvas();
 window.addEventListener("resize", resizeMatrixCanvas);
 
-// 🧠 Scroll Fade Logic
+// Scroll Fade Logic
 function updateMatrixOpacity() {
   const rect = landing.getBoundingClientRect();
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -101,7 +100,7 @@ function updateMatrixOpacity() {
 window.addEventListener("scroll", updateMatrixOpacity);
 updateMatrixOpacity(); // initial call
 
-// ⌨️ Matrix Animation
+// Matrix Animation
 const letters = "01アカサタナハマヤラ0123456789";
 const fontSize = 14;
 let drops = [];
