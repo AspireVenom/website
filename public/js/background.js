@@ -56,69 +56,48 @@ function animateGradient() {
 }
 animateGradient();
 
-// Scoped Matrix Rain in #landing
+// Create canvas inside #landing
 const matrixCanvas = document.createElement("canvas");
 const landing = document.getElementById("landing");
 landing.style.position = "relative";
 landing.appendChild(matrixCanvas);
 const mtx = matrixCanvas.getContext("2d");
 
-matrixCanvas.style.position = "absolute";
-matrixCanvas.style.top = "0";
-matrixCanvas.style.left = "0";
-matrixCanvas.style.width = "100%";
-matrixCanvas.style.height = "100%";
-matrixCanvas.style.zIndex = "0";
-matrixCanvas.style.pointerEvents = "none";
-matrixCanvas.style.opacity = "0.08";
-matrixCanvas.style.transition = "opacity 0.3s ease"; // Smooth fade
+// Set canvas styles
+Object.assign(matrixCanvas.style, {
+  position: "absolute",
+  top: "0",
+  left: "0",
+  width: "100%",
+  height: "100%",
+  zIndex: "0",
+  pointerEvents: "none",
+  opacity: "0.08",
+  transition: "opacity 0.3s ease",
+});
 
-function resizeMatrixCanvas() {
-  matrixCanvas.width = landing.offsetWidth;
-  matrixCanvas.height = landing.offsetHeight;
-}
-resizeMatrixCanvas();
-window.addEventListener("resize", resizeMatrixCanvas);
-
-// Scroll Fade Logic
-function updateMatrixOpacity() {
-  const rect = landing.getBoundingClientRect();
-  const scrollTop = window.scrollY || document.documentElement.scrollTop;
-  const landingTop = rect.top + scrollTop;
-  const landingHeight = landing.offsetHeight;
-
-  const fadeStart = 0;
-  const fadeEnd = landingHeight / 1.2;
-
-  const scrolled = Math.min(Math.max(0, scrollTop - landingTop), fadeEnd);
-  const fade = 1 - scrolled / fadeEnd;
-  const baseOpacity = 0.08;
-
-  matrixCanvas.style.opacity = (fade * baseOpacity).toFixed(3);
-}
-
-window.addEventListener("scroll", updateMatrixOpacity);
-updateMatrixOpacity(); // initial call
-
-// Matrix Animation
 const letters = "01アカサタナハマヤラ0123456789";
 const fontSize = 14;
 let drops = [];
 
-function initMatrix() {
-  const columns = Math.floor(matrixCanvas.width / fontSize);
-  drops = Array(columns).fill(1);
-}
-initMatrix();
-window.addEventListener("resize", initMatrix);
+function resizeMatrixCanvas() {
+  // Prefer full viewport height rather than relying on landing height
+  const width = landing.clientWidth;
+  const height = window.innerHeight; // more reliable than getBoundingClientRect().height
 
+  matrixCanvas.width = width;
+  matrixCanvas.height = height;
+
+  const columns = Math.floor(width / fontSize);
+  drops = Array(columns).fill(1);
+
+  mtx.font = fontSize + "px monospace";
+}
 function drawMatrix() {
   mtx.fillStyle = "rgba(0, 0, 0, 0.05)";
   mtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
 
   mtx.fillStyle = "#0f0";
-  mtx.font = fontSize + "px monospace";
-
   for (let i = 0; i < drops.length; i++) {
     const text = letters.charAt(Math.floor(Math.random() * letters.length));
     mtx.fillText(text, i * fontSize, drops[i] * fontSize);
@@ -126,8 +105,18 @@ function drawMatrix() {
     if (drops[i] * fontSize > matrixCanvas.height || Math.random() > 0.975) {
       drops[i] = 0;
     }
-
     drops[i]++;
   }
 }
-setInterval(drawMatrix, 50);
+
+window.addEventListener("load", () => {
+  resizeMatrixCanvas();
+  setInterval(drawMatrix, 50);
+});
+
+// Handle window resize once
+window.addEventListener("resize", () => {
+  requestAnimationFrame(() => {
+    resizeMatrixCanvas();
+  });
+});
