@@ -57,13 +57,14 @@ function animateGradient() {
 animateGradient();
 
 // Create canvas inside #landing
+// Matrix Canvas Setup
 const matrixCanvas = document.createElement("canvas");
 const landing = document.getElementById("landing");
 landing.style.position = "relative";
 landing.appendChild(matrixCanvas);
 const mtx = matrixCanvas.getContext("2d");
 
-// Set canvas styles
+// Canvas Style
 Object.assign(matrixCanvas.style, {
   position: "absolute",
   top: "0",
@@ -80,10 +81,15 @@ const letters = "01アカサタナハマヤラ0123456789";
 const fontSize = 14;
 let drops = [];
 
-function resizeMatrixCanvas() {
-  // Prefer full viewport height rather than relying on landing height
+let lastWidth = 0;
+let lastHeight = 0;
+
+function resizeMatrixCanvas(force = false) {
   const width = landing.clientWidth;
-  const height = window.innerHeight; // more reliable than getBoundingClientRect().height
+  const height = window.innerHeight;
+
+  // Only resize if dimensions truly changed
+  if (!force && width === lastWidth && height === lastHeight) return;
 
   matrixCanvas.width = width;
   matrixCanvas.height = height;
@@ -92,7 +98,11 @@ function resizeMatrixCanvas() {
   drops = Array(columns).fill(1);
 
   mtx.font = fontSize + "px monospace";
+
+  lastWidth = width;
+  lastHeight = height;
 }
+
 function drawMatrix() {
   mtx.fillStyle = "rgba(0, 0, 0, 0.05)";
   mtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
@@ -110,13 +120,15 @@ function drawMatrix() {
 }
 
 window.addEventListener("load", () => {
-  resizeMatrixCanvas();
+  resizeMatrixCanvas(true); // Force resize on first load
   setInterval(drawMatrix, 50);
 });
 
-// Handle window resize once
+// Debounced resize listener
+let resizeTimeout;
 window.addEventListener("resize", () => {
-  requestAnimationFrame(() => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
     resizeMatrixCanvas();
-  });
+  }, 200);
 });
