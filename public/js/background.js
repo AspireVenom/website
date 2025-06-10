@@ -88,17 +88,25 @@ function resizeMatrixCanvas(force = false) {
   const width = landing.clientWidth;
   const height = window.innerHeight;
 
-  // Only resize if dimensions truly changed
   if (!force && width === lastWidth && height === lastHeight) return;
 
-  matrixCanvas.width = width;
-  matrixCanvas.height = height;
+  const oldColumns = drops.length;
+  const newColumns = Math.floor(width / fontSize);
 
-  const columns = Math.floor(width / fontSize);
-  drops = Array(columns).fill(1);
+  // Resize canvas without clearing drop state by updating only if size actually changed
+  if (matrixCanvas.width !== width) matrixCanvas.width = width;
+  if (matrixCanvas.height !== height) matrixCanvas.height = height;
+
+  if (newColumns !== oldColumns) {
+    const oldDrops = [...drops];
+    drops.length = newColumns;
+
+    for (let i = 0; i < newColumns; i++) {
+      drops[i] = oldDrops[i] || 1;
+    }
+  }
 
   mtx.font = fontSize + "px monospace";
-
   lastWidth = width;
   lastHeight = height;
 }
