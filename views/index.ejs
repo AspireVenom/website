@@ -4,16 +4,27 @@
   <meta charset="UTF-8">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon" sizes="32x32">
   <title>Douglas Alvarino</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Douglas Alvarino – Full-stack developer and cybersecurity student building modern, AI-powered tools with Rust, React, and Python.">
+  <meta name="keywords" content="Douglas Alvarino, Rust developer, React developer, cybersecurity portfolio, AI tools, SwipeToAdopt, Vimurai, full-stack engineer">
+  <meta name="author" content="Douglas Alvarino">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Douglas Alvarino – Developer Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.dalvarino.net/" />
+  <meta property="og:image" content="https://www.dalvarino.net/images/preview.png" />
+  <meta property="og:description" content="Explore my Rust, React, and AI projects. From SwipeToAdopt to Vimurai, see how I build with purpose and precision." />
+  <meta property="og:site_name" content="dalvarino.net" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  </style>
 </head>
 <body>
 <section id="landing" class="landing">
   <div class="intro">
-    <!-- This is only used on desktop -->
     <div class="terminal-line" id="line1-container">
       <span class="prompt">&gt; </span><span id="line1"></span>
     </div>
@@ -22,37 +33,62 @@
     </div>
     <span class="cursor" id="cursor">_</span>
   </div>
-   <div class="scroll-cue" id="scroll-cue">↓</div>
+  <div class="scroll-cue" id="scroll-cue">↓</div>
 </section>
-  <%- include('partials/header') %>
-
-  <!-- About -->
+<%- include('partials/header') %>
 <section id="about" data-aos="fade-up">
   <div class="about-card">
     <h2>About Me</h2>
     <p>
-     I’m Douglas Alvarino — a product developer and cybersecurity student with over three years of hands-on 
-     experience in software engineering, specializing in Python, JavaScript, and AI training systems. My background 
-     combines technical support, agile development,and real-world application of data analysis to 
-     drive both product quality and user engagement. From building Elo-based sports analytics tools to contributing
-     to open-source machine learning projects, I’m passionate about delivering innovative solutions that bridge data
-     and usability. With a strong foundation in troubleshooting, project management, and secure
-     systems, I’m committed to evolving as a developer who builds resilient, intelligent, and user-focused technology.
+      I’m Douglas Alvarino — a product developer and cybersecurity student with over three years of hands-on
+      experience in software engineering, specializing in Python, JavaScript, and AI training systems. My background
+      combines technical support, agile development, and real-world application of data analysis to
+      drive both product quality and user engagement. From building Elo-based sports analytics tools to contributing
+      to open-source machine learning projects, I’m passionate about delivering innovative solutions that bridge data
+      and usability. With a strong foundation in troubleshooting, project management, and secure
+      systems, I’m committed to evolving as a developer who builds resilient, intelligent, and user-focused technology.
     </p>
   </div>
 </section>
-<!--Resume-->
 
+<section id="strengths" data-aos="fade-up">
+  <div class="strengths-wrapper">
+    <div class="strength-card">
+      <h3>Rust Systems</h3>
+      <p>I develop high-throughput backend systems in Rust using Axum, implementing features such as API response caching, asynchronous task orchestration, and multithreaded data pipelines.</p>
+    </div>
+    <div class="strength-card">
+      <h3>AI & Tooling</h3>
+      <p> Engineered machine learning–powered developer tools, including an AI-driven Neovim plugin leveraging LLMs for contextual code understanding and inline diff visualization.</p>
+    </div>
+  </div>
+
+  <div class="strengths-pathline">
+    <div class="dot"></div>
+    <div class="line"></div>
+    <div class="arrow">↓</div>
+  </div>
+</section>
+<!--Resume-->
 <section id="resume" data-aos="fade-up">
   <div class="resume-grid">
-    
+
     <!-- Experience -->
     <div class="resume-left">
       <h2>Experience</h2>
       <ul class="resume-list">
-        <li><strong>Assistant Fitness Manager</strong>, EOS Fitness — Sep 2024–Present<br><em>Tampa, FL</em></li>
-        <li><strong>Inside Sales & Technical Support</strong>, Bass Pro Shops — Dec 2023–Feb 2025<br><em>Tampa, FL</em></li>
-        <li><strong>Volunteer</strong>, Luv Michael — Feb 2022–Aug 2022<br><em>Remote</em></li>
+        <li>
+          <strong>Assistant Fitness Manager</strong>, EOS Fitness — Sep 2024–Present<br>
+          <em>Tampa, FL</em>
+        </li>
+        <li>
+          <strong>Inside Sales & Technical Support</strong>, Bass Pro Shops — Dec 2023–Feb 2025<br>
+          <em>Tampa, FL</em>
+        </li>
+        <li>
+          <strong>Volunteer</strong>, Luv Michael — Feb 2022–Aug 2022<br>
+          <em>Remote</em>
+        </li>
       </ul>
     </div>
 
@@ -70,18 +106,86 @@
         <li>Problem Solving</li>
       </ul>
     </div>
+
     <h2>Education</h2>
-    <p><strong>University of South Florida</strong><br>B.S. in Cybersecurity — Aug 2023–Present</p>
+    <p>
+      <strong>University of South Florida</strong><br>
+      B.S. in Cybersecurity — Aug 2023–Present
+    </p>
   </div>
 </section>
 
-  <!-- Projects -->
+<section id="highlight-projects" data-aos="fade-up">
+  <h2 class="section-title">Highlighted Projects</h2>
+
+  <div class="highlight-carousel">
+    <div class="carousel-track">
+      <div class="highlight-node">
+        <h3>🐾 SwipeToAdopt</h3>
+        <p>A Rust + React pet adoption app with Tinder-style UI used by 50+ users during pilot.</p>
+        <ul class="flow-tools">
+          <li>Rust</li>
+          <li>React</li>
+          <li>Axum</li>
+          <li>Petfinder API</li>
+          <li>Infinite Scrolling</li>
+        </ul>
+        <a href="https://swipetoadopt.org" target="_blank" class="highlight-btn">Visit Site</a>
+      </div>
+
+      <div class="highlight-node">
+        <h3>💪 AI Trainer</h3>
+        <p>Gamified fitness dashboard that boosted retention 30% with task leveling.</p>
+        <ul class="flow-tools">
+          <li>React</li>
+          <li>Firebase</li>
+          <li>Auth</li>
+          <li>Gamification</li>
+          <li>Leveling UX</li>
+        </ul>
+        <a href="https://github.com/AspireVenom/AI_Trainer" target="_blank" class="highlight-btn">View GitHub</a>
+      </div>
+
+      <div class="highlight-node">
+        <h3>⚾ EloSystem</h3>
+        <p>ML-powered Elo ratings with 72% prediction accuracy across 1,500+ MLB games.</p>
+        <ul class="flow-tools">
+          <li>Python</li>
+          <li>PyTorch</li>
+          <li>Matplotlib</li>
+          <li>Elo Algorithms</li>
+          <li>ML Model Tuning</li>
+        </ul>
+        <a href="https://github.com/AspireVenom/EloSystem" target="_blank" class="highlight-btn">View GitHub</a>
+      </div>
+
+      <div class="highlight-node">
+        <h3>📲 SMS Automator</h3>
+        <p>Automated 500+ reminders using Python scripts, saving 20+ hours/month.</p>
+        <ul class="flow-tools">
+          <li>Python</li>
+          <li>Twilio API</li>
+          <li>CRON Jobs</li>
+          <li>Text Templates</li>
+          <li>Async Scheduling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-controls">
+    <button id="carousel-prev" class="carousel-button">← Prev</button>
+    <button id="carousel-next" class="carousel-button">Next →</button>
+  </div>
+</section>
+
+</section>
 <section id="projects">
   <h2 data-aos="fade-up">Projects</h2>
   <div class="project-scroll-wrapper">
     <div class="project-grid">
       <% projects.forEach(project => { %>
-        <div class="project-card" data-aos="fade-up">
+        <div class="project-card">
           <h3><a href="<%= project.url %>" target="_blank"><%= project.name %></a></h3>
           <p><%= project.description %></p>
           <div class="project-meta">
@@ -96,11 +200,16 @@
     </div>
   </div>
 </section>
-  <%- include('partials/footer') %>
 
-  <!-- Scripts -->
-  <script>
+<%- include('partials/footer') %>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<script>
 document.addEventListener("DOMContentLoaded", () => {
+  // Terminal typing animation
   const isMobile = window.innerWidth <= 768;
   const intro = document.querySelector(".intro");
   const cursor = document.getElementById("cursor");
@@ -113,17 +222,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (!isMobile) {
-    // 💻 Desktop mode
-    const line1Container = document.getElementById("line1-container");
-    const line2Container = document.getElementById("line2-container");
     const line1 = document.getElementById("line1");
     const line2 = document.getElementById("line2");
-
-    // Make sure both lines are visible
-    line1Container.style.display = "block";
-    line2Container.style.display = "block";
-    line2Container.style.opacity = "0";
-
+    const line2Container = document.getElementById("line2-container");
     const line1Text = "Douglas Alvarino";
     const line2Text = "Engineer | Developer | Explorer";
     let i = 0, j = 0;
@@ -151,24 +252,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     typeLine1();
   } else {
-    // 📱 Mobile mode
-    // Hide desktop lines so they don’t show up with lone prompts
-    document.getElementById("line1-container").style.display = "none";
-    document.getElementById("line2-container").style.display = "none";
-
     const lines = ["Douglas Alvarino", "Engineer", "Developer", "Explorer"];
     let currentLine = 0;
     let charIndex = 0;
 
     function typeMobileLine() {
       if (currentLine >= lines.length) return;
-
       const newLine = document.createElement("div");
       newLine.className = "terminal-line";
       const lineId = `mobile-line-${currentLine}`;
       newLine.innerHTML = `<span class="prompt">&gt; </span><span id="${lineId}"></span>`;
       intro.insertBefore(newLine, cursor);
-
       const span = document.getElementById(lineId);
       const text = lines[currentLine];
 
@@ -184,26 +278,31 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(typeMobileLine, 300);
         }
       }
-
       typeChar();
     }
-
     typeMobileLine();
   }
-});
-</script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
+  // IntersectionObserver for project cards
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("fade-in");
+      }
+    });
+  });
+  document.querySelectorAll('.project-card').forEach(card => {
+    observer.observe(card);
+  });
+
+  // Navbar toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
     navLinks.classList.toggle('show');
   });
 
-  // Auto-hide menu on nav link click (mobile only)
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
@@ -212,28 +311,87 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Scroll cue
+  const cue = document.getElementById("scroll-cue");
+  const aboutSection = document.getElementById("about");
+  let scrolled = false;
+
+  function scrollToAbout() {
+    if (!scrolled) {
+      scrolled = true;
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  cue.addEventListener("click", scrollToAbout);
+  window.addEventListener("wheel", (e) => {
+    if (e.deltaY > 0) scrollToAbout();
+  });
+});
 </script>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init();</script>
 
-  <script>
-    // Scroll to About section on cue click or wheel
-    // Scroll to About section on cue click or wheel
-    const cue = document.getElementById("scroll-cue");
-    const aboutSection = document.getElementById("about");
-    let scrolled = false;
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // ... your existing script logic ...
 
-    function scrollToAbout() {
-      if (!scrolled) {
-        scrolled = true;
-        aboutSection.scrollIntoView({ behavior: "smooth" });
-      }
+    // --- 🎯 Carousel Logic ---
+    const track = document.querySelector(".carousel-track");
+    const nodes = document.querySelectorAll(".highlight-node");
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
+
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const offset = currentIndex * -100;
+      track.style.transform = `translateX(${offset}%)`;
     }
 
-    cue.addEventListener("click", scrollToAbout);
-    window.addEventListener("wheel", (e) => {
-      if (e.deltaY > 0) scrollToAbout();
+    prevBtn?.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
     });
- </script>
 
+    nextBtn?.addEventListener("click", () => {
+      if (currentIndex < nodes.length - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    // Mobile swipe support
+    let startX = 0;
+    let isSwiping = false;
+
+    track?.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      isSwiping = true;
+    });
+
+    track?.addEventListener("touchmove", (e) => {
+      if (!isSwiping) return;
+      const diffX = e.touches[0].clientX - startX;
+      if (Math.abs(diffX) > 50) {
+        if (diffX < 0 && currentIndex < nodes.length - 1) {
+          currentIndex++;
+        } else if (diffX > 0 && currentIndex > 0) {
+          currentIndex--;
+        }
+        updateCarousel();
+        isSwiping = false;
+      }
+    });
+
+    track?.addEventListener("touchend", () => {
+      isSwiping = false;
+    });
+  });
+</script>
 </body>
 </html>
-

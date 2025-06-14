@@ -106,7 +106,7 @@ function resizeMatrixCanvas(force = false) {
     }
   }
 
-  mtx.font = fontSize + "px monospace";
+  mtx.font = "14px 'Courier New', monospace";
   lastWidth = width;
   lastHeight = height;
 }

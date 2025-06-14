@@ -1,3 +1,8 @@
+const express = require("express");
+const axios = require("axios");
+
+const router = express.Router();
+
 router.get("/", async (req, res) => {
   try {
     const response = await axios.get(
@@ -34,3 +39,6 @@ router.get("/", async (req, res) => {
     res.render("index", { projects: [] });
   }
 });
+
+// ✅ This line is required so app.js can use the router
+module.exports = router;
