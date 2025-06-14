@@ -1,44 +1,27 @@
-const express = require("express");
-const axios = require("axios");
+const projects = repos
+  .filter(repo => !repo.fork)
+  .map(repo => ({
+    name: repo.name,
+    description: repo.description || 'No description provided.',
+    url: repo.html_url,
+    language: repo.language,
+    stars: repo.stargazers_count,
+    forks: repo.forks_count
+  }));
 
-const router = express.Router();
-
-router.get("/", async (req, res) => {
-  try {
-    const response = await axios.get(
-      "https://api.github.com/users/AspireVenom/repos?per_page=100",
-    );
-    const repos = response.data;
-
-    let projects = repos
-      .filter((repo) => !repo.fork)
-      .map((repo) => ({
-        name: repo.name,
-        description: repo.description || "No description provided.",
-        url: repo.html_url,
-        language: repo.language,
-        stars: repo.stargazers_count,
-        forks: repo.forks_count,
-      }));
-
-    projects.push({
-      name: "SwipeToAdopt",
-      description:
-        "Tinder-style pet adoption app using Rust + React. Cached Petfinder API with infinite swipe UX.",
-      url: "https://www.swipetoadopt.org",
-      language: "Rust + React",
-      stars: 503,
-      forks: 2,
-    });
-
-    projects.sort((a, b) => b.stars - a.stars);
-
-    res.render("index", { projects });
-  } catch (error) {
-    console.error("Error fetching repositories:", error);
-    res.render("index", { projects: [] });
-  }
+// Manually add SwipeToAdopt to top visibility
+projects.push({
+  name: 'SwipeToAdopt',
+  description: 'Tinder-style pet adoption app using Rust + React.',
+  url: 'https://www.swipetoadopt.org',
+  language: 'Rust + React',
+  stars: 532,
+  forks: 2
 });
 
-// ✅ This line is required so app.js can use the router
-module.exports = router;
+// Sort by stars descending to highlight popular work
+projects.sort((a, b) => b.stars - a.stars);
+
+// Render view with enriched projects list
+res.render('index', { projects });
+
