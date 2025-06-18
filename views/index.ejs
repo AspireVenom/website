@@ -8,6 +8,8 @@
   <meta name="description" content="Douglas Alvarino – Full-stack developer and cybersecurity student building modern, AI-powered tools with Rust, React, and Python.">
   <meta name="keywords" content="Douglas Alvarino, Rust developer, React developer, cybersecurity portfolio, AI tools, SwipeToAdopt, Vimurai, full-stack engineer">
   <meta name="author" content="Douglas Alvarino">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.dalvarino.net/" />
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Douglas Alvarino – Developer Portfolio" />
   <meta property="og:type" content="website" />
@@ -15,6 +17,25 @@
   <meta property="og:image" content="https://www.dalvarino.net/images/preview.png" />
   <meta property="og:description" content="Explore my Rust, React, and AI projects. From SwipeToAdopt to Vimurai, see how I build with purpose and precision." />
   <meta property="og:site_name" content="dalvarino.net" />
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Douglas Alvarino – Developer Portfolio">
+  <meta name="twitter:description" content="Explore my Rust, React, and AI projects. From SwipeToAdopt to Vimurai, see how I build with purpose and precision.">
+  <meta name="twitter:image" content="https://www.dalvarino.net/images/preview.png">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Douglas Alvarino",
+    "url": "https://www.dalvarino.net/",
+    "sameAs": [
+      "https://github.com/AspireVenom"
+    ],
+    "jobTitle": "Full-stack Developer",
+    "description": "Full-stack developer and cybersecurity student building modern, AI-powered tools with Rust, React, and Python."
+  }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -23,10 +44,10 @@
   </style>
 </head>
 <body>
-<section id="landing" class="landing">
+<header id="landing" class="landing">
   <div class="intro">
     <div class="terminal-line" id="line1-container">
-      <span class="prompt">&gt; </span><span id="line1"></span>
+      <span class="prompt">&gt; </span><span id="line1"><h1 style="display:inline; font:inherit; margin:0; padding:0;">Douglas Alvarino</h1></span>
     </div>
     <div class="terminal-line" id="line2-container" style="opacity: 0;">
       <span class="prompt">&gt; </span><span id="line2"></span>
@@ -34,8 +55,9 @@
     <span class="cursor" id="cursor">_</span>
   </div>
   <div class="scroll-cue" id="scroll-cue">↓</div>
-</section>
+</header>
 <%- include('partials/header') %>
+<main>
 <section id="about" data-aos="fade-up">
   <div class="about-card">
     <h2>About Me</h2>
@@ -388,6 +410,7 @@
 </section>
 
 <%- include('partials/footer') %>
+</main>
 
 <!-- Snake Game Modal (hidden by default) -->
 <div id="snake-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(10,20,20,0.97); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
@@ -672,29 +695,29 @@ document.addEventListener("DOMContentLoaded", () => {
       const offset = currentIndex * -100;
       track.style.transform = `translateX(${offset}%)`;
     }
-  
+
     prevBtn.addEventListener("click", () => {
       if (currentIndex > 0) {
         currentIndex--;
         updateCarousel();
       }
     });
-  
+
     nextBtn.addEventListener("click", () => {
       if (currentIndex < nodes.length - 1) {
         currentIndex++;
         updateCarousel();
       }
     });
-  
+
     let projectStartX = 0;
     let projectSwiping = false;
-  
+
     track.addEventListener("touchstart", (e) => {
       projectStartX = e.touches[0].clientX;
       projectSwiping = true;
     });
-  
+
     track.addEventListener("touchmove", (e) => {
       if (!projectSwiping) return;
       const diffX = e.touches[0].clientX - projectStartX;
@@ -708,17 +731,17 @@ document.addEventListener("DOMContentLoaded", () => {
         projectSwiping = false;
       }
     });
-  
+
     track.addEventListener("touchend", () => {
       projectSwiping = false;
     });
-  
+
     // Init
     activateCarousel();
     updateCarousel();
   });
-  </script>
-  
+</script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById('hamburger');
