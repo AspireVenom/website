@@ -40,13 +40,13 @@
   <div class="about-card">
     <h2>About Me</h2>
     <p>
-      I’m Douglas Alvarino — a product developer and cybersecurity student with over three years of hands-on
+      I'm Douglas Alvarino — a product developer and cybersecurity student with over three years of hands-on
       experience in software engineering, specializing in Python, JavaScript, and AI training systems. My background
       combines technical support, agile development, and real-world application of data analysis to
       drive both product quality and user engagement. From building Elo-based sports analytics tools to contributing
-      to open-source machine learning projects, I’m passionate about delivering innovative solutions that bridge data
+      to open-source machine learning projects, I'm passionate about delivering innovative solutions that bridge data
       and usability. With a strong foundation in troubleshooting, project management, and secure
-      systems, I’m committed to evolving as a developer who builds resilient, intelligent, and user-focused technology.
+      systems, I'm committed to evolving as a developer who builds resilient, intelligent, and user-focused technology.
     </p>
   </div>
 </section>
@@ -69,59 +69,245 @@
     <div class="arrow">↓</div>
   </div>
 </section>
-<!--Resume-->
-<section id="resume" data-aos="fade-up">
-  <div class="resume-grid">
-
-    <!-- Experience -->
-    <div class="resume-left">
-      <h2>Experience</h2>
-      <ul class="resume-list">
-        <li>
-          <strong>Assistant Fitness Manager</strong>, EOS Fitness — Sep 2024–Present<br>
-          <em>Tampa, FL</em>
-        </li>
-        <li>
-          <strong>Inside Sales & Technical Support</strong>, Bass Pro Shops — Dec 2023–Feb 2025<br>
-          <em>Tampa, FL</em>
-        </li>
-        <li>
-          <strong>Volunteer</strong>, Luv Michael — Feb 2022–Aug 2022<br>
-          <em>Remote</em>
-        </li>
-      </ul>
+<!--Experience-->
+<!-- Experience Roadmap -->
+<h2 class="experience-headline" data-aos="fade-down" data-aos-duration="1000">Experience</h2>
+<div class="experience-roadmap" data-aos="fade-up">
+  <div class="exp-card">
+    <div class="exp-header">
+      <div class="exp-dot"></div>
+      <div>
+        <h3>Junior Software Engineer</h3>
+        <span class="exp-company">EOS Fitness, Tampa, FL</span>
+      </div>
     </div>
-
-    <!-- Skills -->
-    <div class="resume-right">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>Python</li>
-        <li>JavaScript</li>
-        <li>TypeScript</li>
-        <li>C</li>
-        <li>Agile Methodologies</li>
-        <li>Project Management</li>
-        <li>AI Training</li>
-        <li>Problem Solving</li>
-      </ul>
+    <div class="exp-timeline">
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-desc">Implemented automated SMS/email reminders that increased client return rates by <span class="exp-highlight">25%</span></div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-desc">Drove <span class="exp-highlight">15%</span> boost in event attendance through multi-channel outreach strategies</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-desc">Reduced scheduling complaints by <span class="exp-highlight">40%</span> by optimizing calendar software usage</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-desc">Created goal-specific programs that led to <span class="exp-highlight">80+</span> client sign-ups in Q1 2025</div>
+      </div>
     </div>
-
-    <h2>Education</h2>
-    <p>
-      <strong>University of South Florida</strong><br>
-      B.S. in Cybersecurity — Aug 2023–Present
-    </p>
+    <div class="exp-to-skills">
+      <div class="exp-line"></div>
+      <div class="exp-arrow">↓</div>
+    </div>
   </div>
-</section>
+</div>
 
-<section id="highlight-projects" data-aos="fade-up">
+<!-- Skills -->
+<div class="resume-right">
+  <h2 class="skills-headline">Skills</h2>
+  <div class="skills-filter" id="skills-filter">
+    <button class="filter-btn" data-filter="all">All Skills</button>
+    <button class="filter-btn active" data-filter="programming">Programming</button>
+    <button class="filter-btn" data-filter="tools">Tools & Frameworks</button>
+    <button class="filter-btn" data-filter="soft">Soft Skills</button>
+  </div>
+  <div class="skills-visualization">
+    <!-- Carousel for All Skills -->
+    <div class="skills-carousel" id="skills-carousel" style="display:none;">
+      <button class="carousel-arrow left" id="carousel-left">&#8592;</button>
+      <div class="carousel-skill-card-wrapper">
+        <!-- Skill card will be injected here -->
+      </div>
+      <button class="carousel-arrow right" id="carousel-right">&#8594;</button>
+    </div>
+    <!-- Category display for filtered skills -->
+    <div class="skills-categories" id="skills-categories">
+      <div class="skill-category" data-category="programming">
+        <h3><i class="fas fa-code"></i> Programming</h3>
+        <div class="skill-grid">
+          <div class="skill-card" data-skill="Python" data-level="90" data-projects="EloSystem, SMS Automator">
+            <div class="skill-header">
+              <span class="skill-name">Python</span>
+              <span class="skill-level">90%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="90"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Used in: EloSystem, SMS Automator</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="JavaScript" data-level="85" data-projects="AI Trainer, Portfolio">
+            <div class="skill-header">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-level">85%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="85"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Used in: AI Trainer, Portfolio</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="TypeScript" data-level="75" data-projects="SwipeToAdopt">
+            <div class="skill-header">
+              <span class="skill-name">TypeScript</span>
+              <span class="skill-level">75%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="75"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Used in: SwipeToAdopt</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="Rust" data-level="80" data-projects="SwipeToAdopt">
+            <div class="skill-header">
+              <span class="skill-name">Rust</span>
+              <span class="skill-level">80%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="80"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Used in: SwipeToAdopt</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="C" data-level="70" data-projects="Systems Programming">
+            <div class="skill-header">
+              <span class="skill-name">C</span>
+              <span class="skill-level">70%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="70"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Used in: Systems Programming</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-category" data-category="tools">
+        <h3><i class="fas fa-tools"></i> Tools & Frameworks</h3>
+        <div class="skill-grid">
+          <div class="skill-card" data-skill="React" data-level="85" data-projects="SwipeToAdopt, AI Trainer">
+            <div class="skill-header">
+              <span class="skill-name">React</span>
+              <span class="skill-level">85%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="85"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Used in: SwipeToAdopt, AI Trainer</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="Firebase" data-level="80" data-projects="AI Trainer">
+            <div class="skill-header">
+              <span class="skill-name">Firebase</span>
+              <span class="skill-level">80%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="80"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Used in: AI Trainer</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="PyTorch" data-level="75" data-projects="EloSystem">
+            <div class="skill-header">
+              <span class="skill-name">PyTorch</span>
+              <span class="skill-level">75%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="75"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Used in: EloSystem</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="Git" data-level="90" data-projects="All Projects">
+            <div class="skill-header">
+              <span class="skill-name">Git</span>
+              <span class="skill-level">90%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="90"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Used in: All Projects</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-category" data-category="soft">
+        <h3><i class="fas fa-users"></i> Soft Skills</h3>
+        <div class="skill-grid">
+          <div class="skill-card" data-skill="Agile Methodologies" data-level="85" data-projects="Team Projects">
+            <div class="skill-header">
+              <span class="skill-name">Agile</span>
+              <span class="skill-level">85%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="85"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Applied in: Team Projects</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="Project Management" data-level="80" data-projects="All Projects">
+            <div class="skill-header">
+              <span class="skill-name">Project Management</span>
+              <span class="skill-level">80%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="80"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Applied in: All Projects</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="Problem Solving" data-level="90" data-projects="All Projects">
+            <div class="skill-header">
+              <span class="skill-name">Problem Solving</span>
+              <span class="skill-level">90%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="90"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Applied in: All Projects</small>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="AI Training" data-level="75" data-projects="EloSystem">
+            <div class="skill-header">
+              <span class="skill-name">AI Training</span>
+              <span class="skill-level">75%</span>
+            </div>
+            <div class="skill-progress">
+              <div class="progress-bar" data-progress="75"></div>
+            </div>
+            <div class="skill-projects">
+              <small>Applied in: EloSystem</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="highlight-projects" class="highlighted-fade-in">
   <h2 class="section-title">Highlighted Projects</h2>
 
   <div class="highlight-carousel">
     <div class="carousel-track">
       <div class="highlight-node">
-        <h3>🐾 SwipeToAdopt</h3>
+        <h3>SwipeToAdopt</h3>
         <p>A Rust + React pet adoption app with Tinder-style UI used by 50+ users during pilot.</p>
         <ul class="flow-tools">
           <li>Rust</li>
@@ -134,7 +320,7 @@
       </div>
 
       <div class="highlight-node">
-        <h3>💪 AI Trainer</h3>
+        <h3>AI Trainer</h3>
         <p>Gamified fitness dashboard that boosted retention 30% with task leveling.</p>
         <ul class="flow-tools">
           <li>React</li>
@@ -147,7 +333,7 @@
       </div>
 
       <div class="highlight-node">
-        <h3>⚾ EloSystem</h3>
+        <h3>EloSystem</h3>
         <p>ML-powered Elo ratings with 72% prediction accuracy across 1,500+ MLB games.</p>
         <ul class="flow-tools">
           <li>Python</li>
@@ -160,7 +346,7 @@
       </div>
 
       <div class="highlight-node">
-        <h3>📲 SMS Automator</h3>
+        <h3>SMS Automator</h3>
         <p>Automated 500+ reminders using Python scripts, saving 20+ hours/month.</p>
         <ul class="flow-tools">
           <li>Python</li>
@@ -203,10 +389,29 @@
 
 <%- include('partials/footer') %>
 
+<!-- Snake Game Modal (hidden by default) -->
+<div id="snake-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(10,20,20,0.97); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
+  <button id="snake-close" style="position:absolute; top:2rem; right:2rem; font-size:2rem; background:none; border:none; color:#00ff00; cursor:pointer;">&times;</button>
+  <h2 style="color:#00ff00; margin-bottom:1rem;">🐍 Snake Game</h2>
+  <canvas id="snake-canvas" width="400" height="400" style="background:#111; border:2px solid #00ff00; border-radius:12px; max-width:90vw; height:auto;"></canvas>
+  <div id="snake-dpad" style="display:flex; flex-direction:column; align-items:center; margin-top:1.2rem; gap:0.3rem;">
+    <div style="display:flex; justify-content:center; gap:1.2rem;">
+      <button class="snake-dpad-btn" data-direction="up" aria-label="Up">▲</button>
+    </div>
+    <div style="display:flex; justify-content:center; gap:1.2rem;">
+      <button class="snake-dpad-btn" data-direction="left" aria-label="Left">◀</button>
+      <button class="snake-dpad-btn" data-direction="down" aria-label="Down">▼</button>
+      <button class="snake-dpad-btn" data-direction="right" aria-label="Right">▶</button>
+    </div>
+  </div>
+  <p style="color:#b6fcd5; margin-top:1rem;">Use arrow keys, WASD, swipe, or tap the arrows. Press Esc or × to close.</p>
+</div>
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>AOS.init();</script>
 
+<!-- Scripts: Restore animated terminal intro -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Terminal typing animation
@@ -236,8 +441,8 @@ document.addEventListener("DOMContentLoaded", () => {
         i++;
         setTimeout(typeLine1, 80);
       } else {
-        line2Container.style.opacity = "1";
-        setTimeout(typeLine2, 300);
+        // Let CSS animate line2Container in
+        setTimeout(typeLine2, 400);
       }
     }
 
@@ -250,67 +455,65 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    typeLine1();
+    setTimeout(typeLine1, 350); // Small delay for drama
   } else {
-    const lines = ["Douglas Alvarino", "Engineer", "Developer", "Explorer"];
+    // Mobile: Show four lines, each with its own prompt and span, and animate the prompt >
+    const intro = document.querySelector(".intro");
+    const cursor = document.getElementById("cursor");
+    // Remove the two static lines
+    document.getElementById("line1-container").remove();
+    document.getElementById("line2-container").remove();
+    // Define the four lines
+    const mobileLines = ["Douglas Alvarino", "Engineer", "Developer", "Explorer"];
     let currentLine = 0;
     let charIndex = 0;
+    let lineSpans = [];
+    let promptSpans = [];
+
+    // Create four terminal-line elements, but don't show the prompt initially
+    for (let i = 0; i < mobileLines.length; i++) {
+      const lineDiv = document.createElement("div");
+      lineDiv.className = "terminal-line";
+      const promptSpan = document.createElement("span");
+      promptSpan.className = "prompt";
+      promptSpan.textContent = ""; // Will animate in
+      promptSpans.push(promptSpan);
+      const span = document.createElement("span");
+      span.id = `mobile-line-${i}`;
+      lineSpans.push(span);
+      lineDiv.appendChild(promptSpan);
+      lineDiv.appendChild(span);
+      intro.insertBefore(lineDiv, cursor);
+    }
 
     function typeMobileLine() {
-      if (currentLine >= lines.length) return;
-      const newLine = document.createElement("div");
-      newLine.className = "terminal-line";
-      const lineId = `mobile-line-${currentLine}`;
-      newLine.innerHTML = `<span class="prompt">&gt; </span><span id="${lineId}"></span>`;
-      intro.insertBefore(newLine, cursor);
-      const span = document.getElementById(lineId);
-      const text = lines[currentLine];
-
-      function typeChar() {
+      if (currentLine >= mobileLines.length) return;
+      const prompt = promptSpans[currentLine];
+      const span = lineSpans[currentLine];
+      const text = mobileLines[currentLine];
+      // Step 1: Animate the prompt '>'
+      function typePrompt() {
+        prompt.textContent = "> ";
+        moveCursorTo(prompt);
+        setTimeout(typeWord, 180);
+      }
+      // Step 2: Animate the word
+      function typeWord() {
         if (charIndex < text.length) {
           span.textContent += text.charAt(charIndex);
           moveCursorTo(span);
           charIndex++;
-          setTimeout(typeChar, 80);
+          setTimeout(typeWord, 80);
         } else {
           currentLine++;
           charIndex = 0;
           setTimeout(typeMobileLine, 300);
         }
       }
-      typeChar();
+      typePrompt();
     }
-    typeMobileLine();
+    setTimeout(typeMobileLine, 350);
   }
-
-  // IntersectionObserver for project cards
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("fade-in");
-      }
-    });
-  });
-  document.querySelectorAll('.project-card').forEach(card => {
-    observer.observe(card);
-  });
-
-  // Navbar toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('show');
-  });
-
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 768) {
-        navLinks.classList.remove('show');
-        hamburger.classList.remove('active');
-      }
-    });
-  });
 
   // Scroll cue
   const cue = document.getElementById("scroll-cue");
@@ -330,53 +533,171 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init();</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // ... your existing script logic ...
-
-    // --- 🎯 Carousel Logic ---
+    const skillsCarousel = document.getElementById('skills-carousel');
+    const skillsCategories = document.getElementById('skills-categories');
+    const carouselWrapper = document.querySelector('.carousel-skill-card-wrapper');
+    const leftArrow = document.getElementById('carousel-left');
+    const rightArrow = document.getElementById('carousel-right');
+    const filterBar = document.getElementById('skills-filter');
+    const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+  
+    let allSkillCards = Array.from(document.querySelectorAll('.skill-card')).map(card => card.cloneNode(true));
+    let carouselIndex = 0;
+  
+    function showCarouselSkill(idx) {
+      carouselWrapper.innerHTML = '';
+      const card = allSkillCards[idx];
+      if (card) {
+        carouselWrapper.appendChild(card);
+        const progressBar = card.querySelector('.progress-bar');
+        const progress = card.dataset.level;
+        progressBar.style.setProperty('--progress-width', `${progress}%`);
+        card.classList.add('animate');
+        setTimeout(() => {
+          progressBar.style.width = `${progress}%`;
+        }, 100);
+      }
+      leftArrow.disabled = idx === 0;
+      rightArrow.disabled = idx === allSkillCards.length - 1;
+    }
+  
+    function activateCarousel() {
+      allSkillCards = Array.from(document.querySelectorAll('.skill-card')).map(card => card.cloneNode(true));
+      skillsCarousel.style.display = '';
+      skillsCategories.classList.add('hide');
+      carouselIndex = 0;
+      showCarouselSkill(carouselIndex);
+    }
+  
+    function deactivateCarousel() {
+      skillsCarousel.style.display = 'none';
+      skillsCategories.classList.remove('hide');
+    }
+  
+    leftArrow.addEventListener('click', () => {
+      if (carouselIndex > 0) {
+        carouselIndex--;
+        showCarouselSkill(carouselIndex);
+      }
+    });
+  
+    rightArrow.addEventListener('click', () => {
+      if (carouselIndex < allSkillCards.length - 1) {
+        carouselIndex++;
+        showCarouselSkill(carouselIndex);
+      }
+    });
+  
+    // Swipe for skills carousel
+    let skillsStartX = 0;
+    let skillsSwiping = false;
+  
+    carouselWrapper.addEventListener('touchstart', (e) => {
+      skillsStartX = e.touches[0].clientX;
+      skillsSwiping = true;
+    });
+  
+    carouselWrapper.addEventListener('touchmove', (e) => {
+      if (!skillsSwiping) return;
+      const diffX = e.touches[0].clientX - skillsStartX;
+      if (Math.abs(diffX) > 50) {
+        if (diffX < 0 && carouselIndex < allSkillCards.length - 1) {
+          carouselIndex++;
+          showCarouselSkill(carouselIndex);
+        } else if (diffX > 0 && carouselIndex > 0) {
+          carouselIndex--;
+          showCarouselSkill(carouselIndex);
+        }
+        skillsSwiping = false;
+      }
+    });
+  
+    carouselWrapper.addEventListener('touchend', () => {
+      skillsSwiping = false;
+    });
+  
+    // Filter button logic
+    filterBar.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('filter-btn')) return;
+      const selected = e.target;
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      selected.classList.add('active');
+  
+      const filter = selected.dataset.filter;
+      if (filter === 'all') {
+        activateCarousel();
+      } else {
+        deactivateCarousel();
+        document.querySelectorAll('.skill-category').forEach(cat => {
+          cat.style.display = cat.dataset.category === filter ? '' : 'none';
+        });
+        // Animate progress bars for visible skill cards
+        document.querySelectorAll('.skill-category').forEach(cat => {
+          if (cat.style.display !== 'none') {
+            cat.querySelectorAll('.skill-card').forEach(card => {
+              const progressBar = card.querySelector('.progress-bar');
+              const progress = card.dataset.level;
+              progressBar.style.width = '0%'; // Reset
+              progressBar.style.setProperty('--progress-width', `${progress}%`);
+              card.classList.remove('animate'); // Reset animation
+              // Force reflow to restart animation
+              void progressBar.offsetWidth;
+              card.classList.add('animate');
+              setTimeout(() => {
+                progressBar.style.width = `${progress}%`;
+              }, 100);
+            });
+          }
+        });
+      }
+    });
+  
+    // Automatically apply the Programming filter on page load
+    const programmingBtn = filterButtons.find(btn => btn.dataset.filter === 'programming');
+    if (programmingBtn) {
+      setTimeout(() => programmingBtn.click(), 0);
+    }
+  
+    // Highlight Projects Carousel
     const track = document.querySelector(".carousel-track");
     const nodes = document.querySelectorAll(".highlight-node");
     const prevBtn = document.getElementById("carousel-prev");
     const nextBtn = document.getElementById("carousel-next");
-
     let currentIndex = 0;
-
+  
     function updateCarousel() {
       const offset = currentIndex * -100;
       track.style.transform = `translateX(${offset}%)`;
     }
-
-    prevBtn?.addEventListener("click", () => {
+  
+    prevBtn.addEventListener("click", () => {
       if (currentIndex > 0) {
         currentIndex--;
         updateCarousel();
       }
     });
-
-    nextBtn?.addEventListener("click", () => {
+  
+    nextBtn.addEventListener("click", () => {
       if (currentIndex < nodes.length - 1) {
         currentIndex++;
         updateCarousel();
       }
     });
-
-    // Mobile swipe support
-    let startX = 0;
-    let isSwiping = false;
-
-    track?.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-      isSwiping = true;
+  
+    let projectStartX = 0;
+    let projectSwiping = false;
+  
+    track.addEventListener("touchstart", (e) => {
+      projectStartX = e.touches[0].clientX;
+      projectSwiping = true;
     });
-
-    track?.addEventListener("touchmove", (e) => {
-      if (!isSwiping) return;
-      const diffX = e.touches[0].clientX - startX;
+  
+    track.addEventListener("touchmove", (e) => {
+      if (!projectSwiping) return;
+      const diffX = e.touches[0].clientX - projectStartX;
       if (Math.abs(diffX) > 50) {
         if (diffX < 0 && currentIndex < nodes.length - 1) {
           currentIndex++;
@@ -384,14 +705,205 @@ document.addEventListener("DOMContentLoaded", () => {
           currentIndex--;
         }
         updateCarousel();
-        isSwiping = false;
+        projectSwiping = false;
       }
     });
-
-    track?.addEventListener("touchend", () => {
-      isSwiping = false;
+  
+    track.addEventListener("touchend", () => {
+      projectSwiping = false;
     });
+  
+    // Init
+    activateCarousel();
+    updateCarousel();
   });
+  </script>
+  
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('show');
+    });
+    // Close menu when a link is clicked (on mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('show');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+  }
+});
 </script>
+
+<script>
+// Snake Game Easter Egg
+(function() {
+  const logo = document.getElementById('navbar-logo');
+  const modal = document.getElementById('snake-modal');
+  const closeBtn = document.getElementById('snake-close');
+  const canvas = document.getElementById('snake-canvas');
+  const ctx = canvas.getContext('2d');
+  let clickCount = 0;
+  let clickTimer = null;
+  let gameInterval = null;
+  let snake, direction, food, score, gameOver, pendingDir;
+
+  function showModal() {
+    modal.classList.add('active');
+    modal.style.display = 'flex';
+    startGame();
+    document.body.style.overflow = 'hidden';
+  }
+  function hideModal() {
+    modal.classList.remove('active');
+    setTimeout(() => { modal.style.display = 'none'; }, 300);
+    stopGame();
+    document.body.style.overflow = '';
+  }
+
+  // Easter egg trigger: 3 clicks in 2 seconds
+  logo.addEventListener('click', () => {
+    clickCount++;
+    if (clickCount === 1) {
+      clickTimer = setTimeout(() => { clickCount = 0; }, 2000);
+    }
+    if (clickCount === 3) {
+      clearTimeout(clickTimer);
+      clickCount = 0;
+      showModal();
+    }
+  });
+  closeBtn.addEventListener('click', hideModal);
+  window.addEventListener('keydown', (e) => {
+    if (modal.classList.contains('active') && (e.key === 'Escape' || e.key === 'Esc')) {
+      hideModal();
+    }
+  });
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) hideModal();
+  });
+
+  // --- Swipe gesture support ---
+  let touchStartX = null, touchStartY = null;
+  canvas.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }
+  });
+  canvas.addEventListener('touchend', function(e) {
+    if (touchStartX === null || touchStartY === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy)) {
+      // Horizontal swipe
+      if (dx > 30) pendingDir = {x: 1, y: 0}; // right
+      else if (dx < -30) pendingDir = {x: -1, y: 0}; // left
+    } else {
+      // Vertical swipe
+      if (dy > 30) pendingDir = {x: 0, y: 1}; // down
+      else if (dy < -30) pendingDir = {x: 0, y: -1}; // up
+    }
+    touchStartX = null;
+    touchStartY = null;
+  });
+
+  // Snake Game Implementation
+  function startGame() {
+    snake = [{x: 10, y: 10}];
+    direction = {x: 1, y: 0};
+    pendingDir = null;
+    food = {x: Math.floor(Math.random()*20), y: Math.floor(Math.random()*20)};
+    score = 0;
+    gameOver = false;
+    draw();
+    if (gameInterval) clearInterval(gameInterval);
+    gameInterval = setInterval(gameLoop, 100);
+    window.addEventListener('keydown', handleKey);
+  }
+  function stopGame() {
+    clearInterval(gameInterval);
+    window.removeEventListener('keydown', handleKey);
+  }
+  function handleKey(e) {
+    const key = e.key.toLowerCase();
+    if (key === 'arrowup' || key === 'w') pendingDir = {x: 0, y: -1};
+    if (key === 'arrowdown' || key === 's') pendingDir = {x: 0, y: 1};
+    if (key === 'arrowleft' || key === 'a') pendingDir = {x: -1, y: 0};
+    if (key === 'arrowright' || key === 'd') pendingDir = {x: 1, y: 0};
+  }
+  function gameLoop() {
+    if (pendingDir) {
+      // Prevent reversing
+      if (!(pendingDir.x === -direction.x && pendingDir.y === -direction.y)) {
+        direction = pendingDir;
+      }
+      pendingDir = null;
+    }
+    const head = {x: snake[0].x + direction.x, y: snake[0].y + direction.y};
+    // Wall collision
+    if (head.x < 0 || head.x >= 20 || head.y < 0 || head.y >= 20) return endGame();
+    // Self collision
+    if (snake.some(seg => seg.x === head.x && seg.y === head.y)) return endGame();
+    snake.unshift(head);
+    // Food
+    if (head.x === food.x && head.y === food.y) {
+      score++;
+      food = {x: Math.floor(Math.random()*20), y: Math.floor(Math.random()*20)};
+    } else {
+      snake.pop();
+    }
+    draw();
+  }
+  function endGame() {
+    gameOver = true;
+    clearInterval(gameInterval);
+    ctx.fillStyle = '#111';
+    ctx.globalAlpha = 0.85;
+    ctx.fillRect(0, 0, 400, 400);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#ff4444';
+    ctx.font = 'bold 2rem monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('Game Over', 200, 180);
+    ctx.fillStyle = '#00ff00';
+    ctx.font = '1.2rem monospace';
+    ctx.fillText('Score: ' + score, 200, 220);
+    ctx.font = '1rem monospace';
+    ctx.fillText('Press Esc or × to close', 200, 260);
+  }
+  function draw() {
+    ctx.clearRect(0, 0, 400, 400);
+    // Draw grid
+    ctx.strokeStyle = '#222';
+    for (let i = 0; i <= 20; i++) {
+      ctx.beginPath();
+      ctx.moveTo(i*20, 0); ctx.lineTo(i*20, 400);
+      ctx.moveTo(0, i*20); ctx.lineTo(400, i*20);
+      ctx.stroke();
+    }
+    // Draw food
+    ctx.fillStyle = '#00ff00';
+    ctx.fillRect(food.x*20, food.y*20, 20, 20);
+    // Draw snake
+    for (let i = 0; i < snake.length; i++) {
+      ctx.fillStyle = i === 0 ? '#fff' : '#00b300';
+      ctx.fillRect(snake[i].x*20, snake[i].y*20, 20, 20);
+    }
+    // Draw score
+    ctx.fillStyle = '#b6fcd5';
+    ctx.font = '1rem monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText('Score: ' + score, 10, 25);
+  }
+})();
+</script>
+
 </body>
 </html>
