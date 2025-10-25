@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Script from "next/script";
+import BlogLink from "./components/BlogLink";
 
 type Project = {
   name: string;
@@ -64,16 +65,45 @@ export default async function Home() {
           <div className="terminal-line" id="line2-container" style={{opacity: 0}}>
             <span className="prompt">&gt; </span><span id="line2"></span>
           </div>
+          <div className="terminal-line" id="cta-pacman-container" style={{display: 'none'}}>
+            <span className="prompt">&gt; </span><span id="cta-pacman"></span>
+          </div>
+          <div className="terminal-line" id="cta-container" style={{display: 'none'}}>
+            <span className="prompt">&gt; </span><span id="cta-line"></span>
+          </div>
+          <div id="cta-buttons" style={{display: 'none', marginTop: '0.5rem'}}>
+            <button className="cta-btn" data-answer="Y" aria-label="Yes">Y</button>
+            <button className="cta-btn" data-answer="N" aria-label="No">N</button>
+          </div>
           <span className="cursor" id="cursor">_</span>
         </div>
         <div className="scroll-cue" id="scroll-cue">↓</div>
-        <a href={process.env.NODE_ENV === "production" ? (process.env.NEXT_PUBLIC_BLOG_ORIGIN ?? "https://blog.dalvarino.net") : "/blog"} className="blog-cue" aria-label="Blog">
+        <button className="connect-cue" id="connect-cue" aria-label="Connect">
+          <i className="fas fa-plug icon" aria-hidden="true"></i><span className="label"> Connect</span>
+        </button>
+        <BlogLink href="/blog" className="blog-cue" ariaLabel="Blog">
           <i className="fas fa-blog icon" aria-hidden="true"></i><span className="label"> Blog</span>
-        </a>
+        </BlogLink>
       </header>
       <Header />
       <main>
-        <section id="about" data-aos="fade-up">
+        {/* Connect Modal */}
+        <div id="connect-modal" className="connect-modal" role="dialog" aria-modal="true" aria-hidden="true" style={{display: 'none'}}>
+          <div className="connect-backdrop" id="connect-backdrop"></div>
+          <div className="connect-dialog" role="document">
+            <button className="connect-close" id="connect-close" aria-label="Close">×</button>
+            <h2 className="connect-title">Select a connection method</h2>
+            <p className="connect-subtitle">How would you like to reach me?</p>
+            <div className="connect-actions">
+              <a className="connect-btn primary" id="connect-email" href="mailto:douglitandres@gmail.com?subject=Let%27s%20connect" rel="noreferrer">Email</a>
+              <a className="connect-btn" id="connect-linkedin" href="https://www.linkedin.com/in/douglas-alvarino-881b94237" target="_blank" rel="noreferrer">LinkedIn</a>
+              <button className="connect-btn" id="connect-copy-email" type="button">Copy Email</button>
+            </div>
+            <p className="connect-hint">Press Esc to close</p>
+          </div>
+        </div>
+
+        <section id="about">
           <div className="about-card">
             <div className="about-grid">
               <div className="about-left">
@@ -198,13 +228,13 @@ export default async function Home() {
         <div className="resume-right" id="skills">
           <h2 className="skills-headline">Skills</h2>
           <div className="recruiter-skills">
-            <div className="recruiter-summary" data-aos="fade-up">
+            <div className="recruiter-summary">
               <span className="recruiter-badge">4+ yrs</span>
               <span className="recruiter-badge">AI/ML + RAG</span>
               <span className="recruiter-badge">Cloud: Azure</span>
               <span className="recruiter-badge">CI/CD</span>
             </div>
-            <div className="recruiter-pills" data-aos="fade-up" data-aos-delay="50">
+            <div className="recruiter-pills">
               <span className="recruiter-pill">Python</span>
               <span className="recruiter-pill">TypeScript</span>
               <span className="recruiter-pill">React</span>
@@ -216,7 +246,7 @@ export default async function Home() {
               <span className="recruiter-pill">Azure</span>
               <span className="recruiter-pill">Datadog</span>
             </div>
-            <div className="recruiter-grid" data-aos="fade-up" data-aos-delay="100">
+            <div className="recruiter-grid">
               <div className="recruiter-tile">
                 <div className="tile-head"><span>Python</span><span>90%</span></div>
                 <div className="recruiter-meter"><div className="recruiter-fill" style={{width:'90%'}}></div></div>
@@ -264,7 +294,7 @@ export default async function Home() {
         <section id="highlight-projects" className="highlighted-fade-in">
           <h2 className="section-title">Featured Projects</h2>
           <div className="showcase-grid">
-            <article className="showcase-card" data-aos="fade-up">
+            <article className="showcase-card">
               <div className="showcase-accent"></div>
               <h3>SwipeToAdopt</h3>
               <p>A Rust + React pet adoption app with Tinder-style UI used by 50+ users during pilot.</p>
@@ -279,7 +309,7 @@ export default async function Home() {
               </div>
             </article>
 
-            <article className="showcase-card" data-aos="fade-up" data-aos-delay="50">
+            <article className="showcase-card">
               <div className="showcase-accent"></div>
               <h3>AI Trainer</h3>
               <p>Gamified fitness dashboard that boosted retention 30% with task leveling.</p>
@@ -293,7 +323,7 @@ export default async function Home() {
               </div>
             </article>
 
-            <article className="showcase-card" data-aos="fade-up" data-aos-delay="100">
+            <article className="showcase-card">
               <div className="showcase-accent"></div>
               <h3>EloSystem</h3>
               <p>ML-powered Elo ratings with 72% prediction accuracy across 1,500+ MLB games.</p>
@@ -307,7 +337,7 @@ export default async function Home() {
               </div>
             </article>
 
-            <article className="showcase-card" data-aos="fade-up" data-aos-delay="150">
+            <article className="showcase-card">
               <div className="showcase-accent"></div>
               <h3>SMS Automator</h3>
               <p>Automated 500+ reminders using Python scripts, saving 20+ hours/month.</p>
@@ -324,7 +354,7 @@ export default async function Home() {
         </section>
 
         <section id="projects">
-          <h2 data-aos="fade-up">Projects</h2>
+          <h2>Github Projects</h2>
           <div className="project-scroll-wrapper">
             <div className="project-grid">
               {projects.map((project: Project) => (

@@ -11,7 +11,7 @@ export function middleware(req: NextRequest) {
       url.pathname = "/blog";
       return NextResponse.rewrite(url);
     }
-    if (!url.pathname.startsWith("/blog/")) {
+    if (!url.pathname.startsWith("/blog")) {
       url.pathname = `/blog${url.pathname}`;
       return NextResponse.rewrite(url);
     }

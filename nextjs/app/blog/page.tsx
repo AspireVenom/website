@@ -16,7 +16,7 @@ export default async function BlogIndex() {
   return (
     <main className="blog-container">
       <header className="blog-hero">
-        <h1>Blog</h1>
+        <h1 className="blog-transition-target">Blog</h1>
         <p>Notes on engineering, design, and learning in public.</p>
       </header>
       <ul className="blog-list">

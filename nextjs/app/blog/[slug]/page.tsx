@@ -1,4 +1,5 @@
 import { getPostBySlug } from "@/lib/blog";
+import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
@@ -16,7 +17,14 @@ const components = {
 };
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const { content, meta } = await getPostBySlug(params.slug);
+  const slug = params?.slug;
+  if (!slug) {
+    notFound();
+  }
+  const { content, meta } = await getPostBySlug(slug);
+  if (!content || !meta?.title) {
+    notFound();
+  }
   return (
     <article className="blog-article">
       <header className="blog-post-header">
