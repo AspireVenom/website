@@ -415,47 +415,20 @@ body.modern-gradient {
 #highlight-projects {
   position: relative;
   padding: 6rem 1.5rem;
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(0, 255, 128, 0.05) 0%,
-      rgba(0, 128, 255, 0.05) 100%
-    ),
-    linear-gradient(to right, rgba(0, 255, 128, 0.04), rgba(0, 128, 255, 0.04));
+  background: transparent;
   text-align: center;
   overflow: hidden;
   z-index: 0;
 }
 
 #highlight-projects::before {
-  content: "";
+  content: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(0, 255, 128, 0.06),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(0, 128, 255, 0.05),
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 255, 255, 0.03),
-      transparent 70%
-    ),
-    conic-gradient(
-      from 180deg at 50% 50%,
-      rgba(0, 255, 128, 0.02),
-      rgba(0, 128, 255, 0.02),
-      rgba(255, 255, 255, 0.01)
-    );
+  background: none;
   pointer-events: none;
   z-index: 0;
 }
@@ -476,23 +449,33 @@ body.modern-gradient {
   margin: 0 auto;
   overflow: hidden;
   z-index: 1;
+  background: transparent;
+  border-radius: 1.7rem;
+  box-shadow: none;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.6s ease-in-out;
+  gap: 16px;
+  padding: 0 clamp(24px, 8vw, 80px);
 }
 
 .highlight-node {
-  min-width: 100%;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(0, 255, 128, 0.12);
+  min-width: 86%;
+  flex: 0 0 86%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 0, 0.15);
   border-radius: 1.5rem;
   padding: 2rem;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    filter 0.3s ease,
+    opacity 0.3s ease;
+  filter: blur(0px) brightness(1);
+  opacity: 1;
 }
 
 .highlight-node:hover {
@@ -610,28 +593,9 @@ body.modern-gradient {
   text-align: center;
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
+/* merged into the mobile-first project-grid below */
 
-.project-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 1.5rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-}
+/* merged hover styles into the mobile-first project card section */
 
 .project-card h3 {
   margin-bottom: 0.5rem;
@@ -837,9 +801,7 @@ footer .social-links i {
 }
 
 /* Interactive Skills Visualization */
-.skills-visualization {
-  margin-top: 1rem;
-}
+/* primary .skills-visualization definition retained later in file */
 
 .skills-categories {
   display: flex;
@@ -1070,25 +1032,9 @@ footer .social-links i {
   50% { opacity: 0.7; }
 }
 
-/* Skills Filter */
-.skills-filter {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
+/* Skills Filter: container styles defined later in the file */
 
-.filter-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(0, 255, 0, 0.2);
-  color: #94a3b8;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
+/* duplicate .filter-btn removed; newer definition retained below */
 
 .filter-btn:hover {
   background: rgba(0, 255, 0, 0.1);
@@ -1097,12 +1043,7 @@ footer .social-links i {
   transform: translateY(-1px);
 }
 
-.filter-btn.active {
-  background: rgba(0, 255, 0, 0.2);
-  border-color: rgba(0, 255, 0, 0.6);
-  color: #00ff00;
-  box-shadow: 0 2px 10px rgba(0, 255, 0, 0.2);
-}
+/* duplicate .filter-btn.active removed; newer definition retained below */
 
 /* Skill category filtering */
 .skill-category {
@@ -1199,13 +1140,7 @@ footer .social-links i {
 }
 
 /* Skills Filter Bar Reordering */
-.skills-filter {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  transition: all 0.3s;
-}
+/* Skills Filter Bar Reordering: container styles already defined; only modifiers below */
 
 .skills-filter .filter-btn {
   order: 2;
@@ -1283,63 +1218,41 @@ footer .social-links i {
 }
 
 /* Highlighted Projects Carousel Improvements */
-.highlight-carousel {
-  position: relative;
-  max-width: 760px;
-  margin: 0 auto;
-  overflow: hidden;
-  z-index: 1;
-  background: rgba(15, 23, 42, 0.55);
-  border-radius: 1.7rem;
-  box-shadow: 0 8px 32px rgba(0,255,0,0.09);
-  padding: 2rem 0 2rem 0;
+/* duplicate of .highlight-carousel removed; using the earlier definition */
+
+/* duplicate of .carousel-track removed; using the earlier definition */
+
+/* duplicate of .highlight-node removed; using the earlier definition */
+/* Carousel focus states to blur neighbors */
+.carousel-track .highlight-node.slide--active {
+  filter: blur(0px) brightness(1);
+  opacity: 1;
+  transform: scale(1);
+}
+.carousel-track .highlight-node.slide--near {
+  filter: blur(2px) brightness(0.9);
+  opacity: 0.9;
+  transform: scale(0.98);
+}
+.carousel-track .highlight-node.slide--far {
+  filter: blur(4px) brightness(0.8);
+  opacity: 0.75;
+  transform: scale(0.96);
 }
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
-  will-change: transform;
+@media (max-width: 600px) {
+  .carousel-track .highlight-node.slide--near,
+  .carousel-track .highlight-node.slide--far {
+    filter: blur(1.5px) brightness(0.95);
+    opacity: 0.9;
+  }
 }
 
-.highlight-node {
-  min-width: 100%;
-  box-sizing: border-box;
-  padding: 2.2rem 1.7rem;
-  background: rgba(15, 23, 42, 0.82);
-  border: 1.5px solid rgba(0,255,128,0.13);
-  border-radius: 1.5rem;
-  margin: 0 0.7rem;
-  transition: box-shadow 0.3s, transform 0.3s;
-  box-shadow: 0 2px 12px rgba(0,255,0,0.08);
-}
+/* duplicate .carousel-controls removed; earlier definition retained */
 
-.carousel-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2.2rem;
-  max-width: 760px;
-  margin-inline: auto;
-  position: relative;
-  z-index: 1;
-}
+/* duplicate .carousel-button removed; earlier definition retained */
 
-.carousel-button {
-  background: transparent;
-  border: 2px solid #00ff99;
-  color: #00ff99;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.15rem;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-  font-weight: 600;
-}
-
-.carousel-button:hover {
-  background: #00ff99;
-  color: #000;
-}
+/* duplicate .carousel-button:hover removed; earlier definition retained */
 
 @media (max-width: 900px) {
   .resume-right, .experience-roadmap {
@@ -1380,14 +1293,7 @@ footer .social-links i {
 }
 
 /* Add spacing above and below highlight projects */
-#highlight-projects {
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
-  padding: 4rem 1.5rem 4rem 1.5rem;
-  background: linear-gradient(120deg, rgba(0,255,128,0.04) 0%, rgba(0,128,255,0.04) 100%);
-  border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(0,255,0,0.07);
-}
+/* duplicate of #highlight-projects spacing block removed; using the earlier definition */
 
 .skills-visualization {
   margin-top: 2.5rem;
@@ -1427,97 +1333,7 @@ footer .social-links i {
   box-shadow: 0 2px 10px rgba(0,255,0,0.13);
 }
 
-.skills-categories {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.skill-category h3 {
-  color: #00ff00;
-  font-size: 1.3rem;
-  margin-bottom: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  border-bottom: 2.5px solid rgba(0,255,0,0.18);
-  padding-bottom: 0.7rem;
-  background: linear-gradient(90deg, rgba(0,255,0,0.04), transparent);
-  border-radius: 8px 8px 0 0;
-}
-
-.skill-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.3rem;
-}
-
-.skill-card {
-  background: rgba(255,255,255,0.07);
-  border: 1.5px solid rgba(0,255,0,0.13);
-  border-radius: 14px;
-  padding: 1.3rem 1.1rem 1.1rem 1.1rem;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,255,0,0.06);
-  backdrop-filter: blur(10px);
-}
-
-.skill-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  border-color: #00ff00;
-  box-shadow: 0 8px 25px rgba(0,255,0,0.18);
-}
-
-.skill-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.9rem;
-}
-
-.skill-name {
-  font-weight: 700;
-  color: #eaffea;
-  font-size: 1.05rem;
-}
-
-.skill-level {
-  color: #00ff00;
-  font-weight: 700;
-  font-size: 0.95rem;
-  background: rgba(0,255,0,0.13);
-  padding: 0.22rem 0.7rem;
-  border-radius: 12px;
-  border: 1.2px solid rgba(0,255,0,0.18);
-}
-
-.skill-progress {
-  height: 7px;
-  background: rgba(255,255,255,0.13);
-  border-radius: 3.5px;
-  overflow: hidden;
-  margin-bottom: 0.9rem;
-  position: relative;
-}
-
-.progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #00ff00, #00cc00);
-  border-radius: 3.5px;
-  width: 0%;
-  transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
-  position: relative;
-  overflow: hidden;
-}
-
-.skill-projects {
-  color: #b6fcd5;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  margin-top: 0.3rem;
-}
+/* duplicate skills blocks removed; earlier definitions retained */
 
 .skills-headline {
   text-align: center;

@@ -1,22 +1,30 @@
 {
   "name": "doug",
   "version": "1.0.0",
-  "main": "app.js",
+  "private": true,
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"No tests specified\""
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "axios": "^1.10.0",
-    "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "node-fetch": "^2.7.0"
+    "aos": "^2.3.4",
+    "next": "^14.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "prettier-plugin-ejs": "^1.0.3"
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
+    "typescript": "^5.6.3"
   }
 }
