@@ -1,5 +1,3 @@
-@import url('https://fontsource.org/fonts/monaspace-radon/cdn/monaspace-radon.css');
-
 html {
   scroll-behavior: smooth;
 }
@@ -50,11 +48,11 @@ html {
   transform: scale(0.96) translateY(30px);
   animation: introFadeIn 1.2s cubic-bezier(0.4,0,0.2,1) 0.2s forwards;
   z-index: 2;
-  font-family: 'Monaspace Radon Var', monospace;
+  font-family: 'Monaspace Radon Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .terminal-line {
-  font-family: 'Monaspace Radon Var', monospace;
+  font-family: 'Monaspace Radon Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   color: #00ff00;
   font-size: 2rem;
   white-space: nowrap;
@@ -86,7 +84,7 @@ html {
 .cursor {
   position: absolute;
   display: inline-block;
-  font-family: 'Monaspace Radon Var', monospace;
+  font-family: 'Monaspace Radon Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 2rem;
   color: #00ff00;
   animation: blink 1s step-end infinite, cursorPulse 1.5s infinite;
@@ -761,7 +759,7 @@ html {
   border-color: rgba(56,189,248,0.25);
   box-shadow: 0 8px 24px rgba(0,0,0,0.35) inset;
 }
-.blog-pre code { font-family: 'Monaspace Radon Var', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.blog-pre code { font-family: 'Monaspace Radon Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 /* Images and captions */
 .blog-article img {

@@ -4,6 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import "aos/dist/aos.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "@fontsource/monaspace-radon/variable.css"; // Monaspace Radon Variable (self-hosted via @fontsource)
 import "./style.css";
 import AOSInit from "./components/AOSInit";
 import ViewTransitions from "./components/ViewTransitions";
@@ -20,7 +21,7 @@ const geistMono = Geist_Mono({
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
