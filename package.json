@@ -4,7 +4,12 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"No tests specified\""
+    "test": "echo \"No tests specified\"",
+    "dev": "npm run dev --prefix nextjs",
+    "next:dev": "npm run dev --prefix nextjs",
+    "next:build": "npm run build --prefix nextjs",
+    "next:start": "npm run start --prefix nextjs",
+    "next:lint": "npm run lint --prefix nextjs"
   },
   "keywords": [],
   "author": "",
