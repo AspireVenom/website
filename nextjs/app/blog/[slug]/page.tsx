@@ -16,19 +16,23 @@ const components = {
   code: (props: React.HTMLAttributes<HTMLElement>) => <code className="blog-code" {...props} />,
 };
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const slug = params?.slug;
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   if (!slug) {
     notFound();
   }
-  const { content, meta } = await getPostBySlug(slug);
-  if (!content || !meta?.title) {
+  let content: string;
+  let meta: { title: string; description?: string; date: string };
+  try {
+    ({ content, meta } = await getPostBySlug(slug));
+  } catch {
     notFound();
   }
   return (
-    <article className="blog-article">
+    <>
+      <article className="blog-article">
       <header className="blog-post-header">
-        <h1>{meta.title}</h1>
+        <h1 style={{ viewTransitionName: `post-title` }}>{meta.title}</h1>
         {meta.description ? <p className="blog-desc">{meta.description}</p> : null}
         <small className="blog-date">{meta.date}</small>
       </header>
@@ -37,7 +41,8 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         components={components}
         options={{ mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings] } }}
       />
-    </article>
+      </article>
+    </>
   );
 }
 

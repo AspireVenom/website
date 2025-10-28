@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import { listPosts } from "@/lib/blog";
+import BlogLink from "@/app/components/BlogLink";
 
 export const dynamic = "force-dynamic";
 
@@ -22,11 +23,13 @@ export default async function BlogIndex() {
       <ul className="blog-list">
         {posts.map((post) => (
           <li key={post.slug} className="blog-item">
-            <a href={`${basePath}/${post.slug}`} className="blog-link">
-              <h2>{post.meta.title}</h2>
+            <BlogLink href={`${basePath}/${post.slug}`} className="blog-link">
+              <h2 data-vt-title>
+                {post.meta.title}
+              </h2>
               {post.meta.description ? <p>{post.meta.description}</p> : null}
               <small>{post.meta.date}</small>
-            </a>
+            </BlogLink>
           </li>
         ))}
       </ul>

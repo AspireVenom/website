@@ -19,6 +19,13 @@ export default function BlogLink({ href, className, ariaLabel, children }: BlogL
     const docAny = document as any
     if (typeof document !== 'undefined' && 'startViewTransition' in document) {
       try {
+        // Mark only the clicked card's title as the shared element
+        const anchor = e.currentTarget as HTMLAnchorElement
+        const titleEl = anchor.querySelector('[data-vt-title]') as HTMLElement | null
+        if (titleEl) {
+          // Ensure only this title participates
+          titleEl.style.viewTransitionName = 'post-title'
+        }
         docAny.startViewTransition(() => {
           // Use location.assign to allow cross-document transition
           window.location.assign(href)
