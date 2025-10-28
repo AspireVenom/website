@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import type { Route } from 'next'
 
 interface BlogLinkProps {
   href: string;
@@ -16,27 +17,32 @@ export default function BlogLink({ href, className, ariaLabel, children }: BlogL
     e.preventDefault()
 
     // Cross-document View Transition if supported (same-origin)
-    const docAny = document as any
-    if (typeof document !== 'undefined' && 'startViewTransition' in document) {
+    if (typeof document !== 'undefined' && document.startViewTransition) {
       try {
         // Mark only the clicked card's title as the shared element
         const anchor = e.currentTarget as HTMLAnchorElement
         const titleEl = anchor.querySelector('[data-vt-title]') as HTMLElement | null
         if (titleEl) {
           // Ensure only this title participates
-          titleEl.style.viewTransitionName = 'post-title'
+          titleEl.style.setProperty('view-transition-name', 'post-title')
         }
-        docAny.startViewTransition(() => {
+        document.startViewTransition(() => {
           // Use location.assign to allow cross-document transition
           window.location.assign(href)
         })
         return
-      } catch (_) {
+      } catch {
         // no-op, fallback below
       }
     }
     // Fallback for browsers that don't support View Transitions
-    router.push(href)
+    if (href.startsWith('/')) {
+      // Safe: internal routes only; satisfies Next typed routes
+      router.push(href as Route)
+    } else {
+      // External URL fallback
+      window.location.assign(href)
+    }
   }
 
   return (
