@@ -4,10 +4,11 @@ import "./globals.css";
 import Script from "next/script";
 import "aos/dist/aos.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "@fontsource/monaspace-radon/variable.css"; // Monaspace Radon Variable (self-hosted via @fontsource)
+import "@fontsource-variable/monaspace-radon"; // Monaspace Radon Variable (self-hosted via @fontsource)
 import "./style.css";
 import AOSInit from "./components/AOSInit";
 import ViewTransitions from "./components/ViewTransitions";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -104,6 +105,7 @@ export default function RootLayout({
         <AOSInit />
         <ViewTransitions />
         {children}
+        <Analytics />
         <Script src="/js/background.js" strategy="afterInteractive" />
       </body>
     </html>
