@@ -95,9 +95,18 @@ export default async function Home() {
             <h2 className="connect-title">Select a connection method</h2>
             <p className="connect-subtitle">How would you like to reach me?</p>
             <div className="connect-actions">
-              <a className="connect-btn primary" id="connect-email" href="mailto:douglitandres@gmail.com?subject=Let%27s%20connect" rel="noreferrer">Email</a>
-              <a className="connect-btn" id="connect-linkedin" href="https://www.linkedin.com/in/douglas-alvarino-881b94237" target="_blank" rel="noreferrer">LinkedIn</a>
-              <button className="connect-btn" id="connect-copy-email" type="button">Copy Email</button>
+              <a className="connect-btn primary" id="connect-email" href="mailto:douglitandres@gmail.com?subject=Let%27s%20connect" rel="noreferrer" aria-label="Email">
+                <i className="fas fa-envelope icon" aria-hidden="true"></i>
+                <span className="label">Email</span>
+              </a>
+              <a className="connect-btn linkedin" id="connect-linkedin" href="https://www.linkedin.com/in/dalvarino" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <i className="fab fa-linkedin icon" aria-hidden="true"></i>
+                <span className="label">LinkedIn</span>
+              </a>
+              <button className="connect-btn" id="connect-copy-email" type="button" aria-label="Copy Email">
+                <i className="fas fa-copy icon" aria-hidden="true"></i>
+                <span className="label">Copy Email</span>
+              </button>
             </div>
             <p className="connect-hint">Press Esc to close</p>
           </div>

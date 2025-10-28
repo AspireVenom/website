@@ -46,16 +46,21 @@ function initTerminalIntro() {
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeConnectModal();
     });
-    if (connectCopyEmail) {
-      connectCopyEmail.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText('douglitandres@gmail.com');
-          const prev = connectCopyEmail.textContent;
-          connectCopyEmail.textContent = 'Copied!';
-          setTimeout(() => (connectCopyEmail.textContent = prev), 1000);
-        } catch {}
-      });
-    }
+  if (connectCopyEmail) {
+    connectCopyEmail.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('douglitandres@gmail.com');
+        const labelEl = connectCopyEmail.querySelector('.label') || connectCopyEmail;
+        const prev = labelEl.textContent;
+        labelEl.textContent = 'Copied!';
+        connectCopyEmail.classList.add('copied');
+        setTimeout(() => {
+          labelEl.textContent = prev;
+          connectCopyEmail.classList.remove('copied');
+        }, 1000);
+      } catch {}
+    });
+  }
   }
   wireModal();
 
