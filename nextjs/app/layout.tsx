@@ -4,7 +4,9 @@ import "./globals.css";
 import Script from "next/script";
 import "aos/dist/aos.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "@fontsource-variable/monaspace-radon"; // Monaspace Radon Variable (self-hosted via @fontsource)
+import "@fontsource/monaspace-radon/400.css";
+import "@fontsource/monaspace-radon/600.css";
+import "@fontsource/monaspace-radon/700.css";
 import "./style.css";
 import AOSInit from "./components/AOSInit";
 import ViewTransitions from "./components/ViewTransitions";
